@@ -16,5 +16,13 @@ namespace WebBanHangMyPham.Models
         public string Password { get; set; }
         [Required]
         public string RetypePassword { get; set; }
+        [Required]
+        public string HoTen { get; set; }
+        [Required]
+        public int SDT { get; set; }
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        public string DiaChi { get; set; }
     }
 }
