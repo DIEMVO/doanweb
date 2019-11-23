@@ -1,0 +1,153 @@
+﻿@model IEnumerable<WebBanHangMyPham.Models.DangKy>
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <br /><br />
+
+<div class="row">
+    <div class ="col-6">
+        <h2 class="text-info"> Dang Ky List </h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; Dang Ky moi</a>
+    </div>
+</div>
+
+<br />
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.TenDangNhap)
+            </th>
+            <th></th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.TenDangNhap)
+                </td>
+            </tr>
+        }
+
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.Password)
+
+            </th>
+            <th></th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.Password)
+                </td>
+                <td>
+                    <partial name="_TableButtonPartial" model="item.MaKhachHang" />
+                </td>
+            </tr>
+        }
+
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.RetypePassword)
+            </th>
+            <th></th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.RetypePassword)
+                </td>
+            </tr>
+        }
+
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.HoTen)
+            </th>
+            <th></th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.HoTen)
+                </td>
+                <td>
+                    <partial name="_TableButtonPartial" model="item.MaKhachHang" />
+                </td>
+            </tr>
+        }
+
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.SDT)
+            </th>
+            <th></th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.SDT)
+                </td>
+                <td>
+                    <partial name="_TableButtonPartial" model="item.MaKhachHang" />
+                </td>
+            </tr>
+        }
+
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.Email)
+            </th>
+            <th></th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.Email)
+                </td>
+                <td>
+                    <partial name="_TableButtonPartial" model="item.MaKhachHang" />
+                </td>
+            </tr>
+        }
+
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.DiaChi)
+            </th>
+            <th></th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.DiaChi)
+                </td>
+                <td>
+                    <partial name="_TableButtonPartial" model="item.MaKhachHang" />
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

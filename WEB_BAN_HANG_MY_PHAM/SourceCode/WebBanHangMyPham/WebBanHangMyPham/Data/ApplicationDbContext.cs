@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebBanHangMyPham.Models;
 
 namespace WebBanHangMyPham.Data
 {
@@ -12,5 +13,7 @@ namespace WebBanHangMyPham.Data
             : base(options)
         {
         }
+
+        public DbSet<DangKy> DangKy { get; set; }
     }
 }
