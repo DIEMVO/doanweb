@@ -30,7 +30,7 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
         }
 
         //POST Create action Method
-        [HttpPost]
+        [HttpPost,ActionName("Create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(DangKy dangKy)
         {
@@ -50,27 +50,17 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var dangKy = await _db.DangKy.FindAsync(maKhachHang);
-            if (dangKy == null)
-            {
-                return NotFound();
-            }
-            return View(dangKy);
+            return View();
         }
 
-        //POST Edit action Method
-        [HttpPost]
+        //POST Create action Method
+        [HttpPost, ActionName("Create")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit( int maKhachHang, DangKy dangKy)
+        public async Task<IActionResult> EditPOST(int? maKhachHang)
         {
-            if(maKhachHang !=dangKy.MaKhachHang)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                _db.Update(dangKy);
+                _db.Add(dangKy);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
