@@ -17,6 +17,7 @@ namespace WebBanHangMyPham.Models
         [Required]
         public string RetypePassword { get; set; }
         [Required]
+        [Display(Name ="Ten Khach Hang")]
         public string HoTen { get; set; }
         [Required]
         public int SDT { get; set; }

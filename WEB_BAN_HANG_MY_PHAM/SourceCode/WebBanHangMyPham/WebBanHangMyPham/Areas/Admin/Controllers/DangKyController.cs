@@ -43,28 +43,65 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
             return View(dangKy);
         }
 
+        //GET - Edit
         public async Task<IActionResult> Edit(int? maKhachHang)
         {
             if(maKhachHang == null)
             {
                 return NotFound();
             }
+            var makhachhang = await _db.DangKy.FindAsync(maKhachHang);
+            if (makhachhang==null)
+            {
+                return NotFound();
+            }
 
-            return View();
+            return View(makhachhang);
         }
 
         //POST Create action Method
-        [HttpPost, ActionName("Create")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditPOST(int? maKhachHang)
+        public async Task<IActionResult> Edit(DangKy dangky)
         {
             if (ModelState.IsValid)
             {
-                _db.Add(dangKy);
+                _db.Update(dangky);
                 await _db.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
-            return View(dangKy);
+            return View(dangky);
+        }
+
+        //GET - Delete
+        public async Task<IActionResult> Delete(int? maKhachHang)
+        {
+            if (maKhachHang == null)
+            {
+                return NotFound();
+            }
+            var makhachhang = await _db.DangKy.FindAsync(maKhachHang);
+            if (makhachhang == null)
+            {
+                return NotFound();
+            }
+
+            return View(makhachhang);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteComfirmed(int? maKhachHang)
+        {
+            var makhachhang = await _db.DangKy.FindAsync(maKhachHang);
+            if (makhachhang==null)
+            {
+                return View();
+            }
+            _db.DangKy.Remove(makhachhang);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
