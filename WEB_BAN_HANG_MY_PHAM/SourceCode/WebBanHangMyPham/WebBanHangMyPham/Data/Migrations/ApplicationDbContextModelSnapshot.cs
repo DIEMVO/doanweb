@@ -221,7 +221,7 @@ namespace WebBanHangMyPham.Data.Migrations
 
             modelBuilder.Entity("WebBanHangMyPham.Models.DangKy", b =>
                 {
-                    b.Property<int>("MaKhachHang")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -242,10 +242,6 @@ namespace WebBanHangMyPham.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RetypePassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("SDT")
                         .HasColumnType("int");
 
@@ -253,7 +249,7 @@ namespace WebBanHangMyPham.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MaKhachHang");
+                    b.HasKey("Id");
 
                     b.ToTable("DangKy");
                 });

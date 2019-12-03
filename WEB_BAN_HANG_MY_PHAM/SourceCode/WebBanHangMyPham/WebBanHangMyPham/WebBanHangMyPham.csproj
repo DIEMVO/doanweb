@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <UserSecretsId>aspnet-WebBanHangMyPham-78C0BD7B-2CCF-4D39-A28D-E33164FD568E</UserSecretsId>
+    <UserSecretsId>aspnet-WebBanHangMyPham-7991015B-3972-4589-BEAE-1D1E335200FD</UserSecretsId>
   </PropertyGroup>
 
 
@@ -18,7 +18,22 @@
 
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Customer\Controllers\" />
+    <Folder Include="Areas\Customer\Views\" />
     <Folder Include="Controllers\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Update="Areas\Customer\Views\Home\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Customer\Views\Home\Privacy.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebBanHangMyPham.Data;
 using WebBanHangMyPham.Models;
 
@@ -14,14 +15,17 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
 
         private readonly ApplicationDbContext _db;
 
-        public DangKyController( ApplicationDbContext db)
+        public DangKyController(ApplicationDbContext db)
         {
             _db = db;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_db.DangKy.ToList());
+            return View(await _db.DangKy.ToListAsync());
         }
+
+
+//-----------------------------------------------CREATE--------------------------------------
 
         //GET Creat Acgtion Method
         public IActionResult Create()
@@ -30,36 +34,37 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
         }
 
         //POST Create action Method
-        [HttpPost,ActionName("Create")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(DangKy dangKy)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                _db.Add(dangKy);
+                _db.DangKy.Add(dangKy);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(dangKy);
         }
 
+//-----------------------------------------------EDIT--------------------------------------
         //GET - Edit
-        public async Task<IActionResult> Edit(int? maKhachHang)
+        public async Task<IActionResult> Edit(int? id)
         {
-            if(maKhachHang == null)
+            if (id == null)
             {
                 return NotFound();
             }
-            var makhachhang = await _db.DangKy.FindAsync(maKhachHang);
-            if (makhachhang==null)
+            var dangKy = await _db.DangKy.FindAsync(id);
+            if (dangKy == null)
             {
                 return NotFound();
             }
 
-            return View(makhachhang);
+            return View(dangKy);
         }
 
-        //POST Create action Method
+        //POST Edit action Method
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(DangKy dangky)
@@ -74,14 +79,15 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
             return View(dangky);
         }
 
+//-----------------------------------------------CREATE--------------------------------------
         //GET - Delete
-        public async Task<IActionResult> Delete(int? maKhachHang)
+        public async Task<IActionResult> Delete(int? id)
         {
-            if (maKhachHang == null)
+            if (id == null)
             {
                 return NotFound();
             }
-            var makhachhang = await _db.DangKy.FindAsync(maKhachHang);
+            var makhachhang = await _db.DangKy.FindAsync(id);
             if (makhachhang == null)
             {
                 return NotFound();
@@ -89,19 +95,51 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
 
             return View(makhachhang);
         }
-
+        //POST Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteComfirmed(int? maKhachHang)
+        public async Task<IActionResult> DeleteComfirmed(int? id)
         {
-            var makhachhang = await _db.DangKy.FindAsync(maKhachHang);
-            if (makhachhang==null)
+            var makhachhang = await _db.DangKy.FindAsync(id);
+            if (makhachhang == null)
             {
                 return View();
             }
             _db.DangKy.Remove(makhachhang);
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+//-----------------------------------------------Details--------------------------------------
+        //GET - Details
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var dangKy = await _db.DangKy.FindAsync(id);
+            if (dangKy == null)
+            {
+                return NotFound();
+            }
+
+            return View(dangKy);
+        }
+
+        //POST Details action Method
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Details(DangKy dangky)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Update(dangky);
+                await _db.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(dangky);
         }
     }
 }

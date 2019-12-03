@@ -5,14 +5,18 @@
 
 <td style="width:150px">
     <div class="btn-group" role="group">
-        <a type="button" class="btn btn-primary" hredf="@Url.Action("EDIT/"+Model).Replace("%2F","/")">
-            <i class="fas fa-edit"></i>
+
+        <a type="button" class="btn btn-primary text-white" asp-action="Edit" asp-route-Id="@Model" .Replace("%2F","/")">
+        <i class="fas fa-edit"></i>
+        Edit
         </a>
-        <a type="button" class="btn btn-primary" hredf="@Url.Action("DETAILS/"+Model).Replace("%2F","/")">
-            <i class="fas fa-list-ul"></i>
+        <a type="button" class="btn btn-primary text-white" asp-action="Details" asp-route-Id="@Model" .Replace("%2F","/")">
+        <i class="fas fa-list-ul"></i>
+        Details
         </a>
-        <a type="button" class="btn btn-primary" hredf="@Url.Action("DELETE/"+Model).Replace("%2F","/")">
-            <i class="far fa-trash-alt"></i>
+        <a type="button" class="btn btn-primary text-white" asp-action="Delete" asp-route-Id="@Model" .Replace("%2F","/")">
+        <i class="far fa-trash-alt"></i>
+        Delete
         </a>
     </div>
 </td>

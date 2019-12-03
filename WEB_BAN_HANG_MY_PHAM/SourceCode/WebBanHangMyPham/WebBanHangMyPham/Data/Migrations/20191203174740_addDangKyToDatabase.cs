@@ -2,7 +2,7 @@
 
 namespace WebBanHangMyPham.Data.Migrations
 {
-    public partial class addDangKytoDatabase : Migration
+    public partial class addDangKyToDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,11 +10,10 @@ namespace WebBanHangMyPham.Data.Migrations
                 name: "DangKy",
                 columns: table => new
                 {
-                    MaKhachHang = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TenDangNhap = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
-                    RetypePassword = table.Column<string>(nullable: false),
                     HoTen = table.Column<string>(nullable: false),
                     SDT = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: false),
@@ -22,7 +21,7 @@ namespace WebBanHangMyPham.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DangKy", x => x.MaKhachHang);
+                    table.PrimaryKey("PK_DangKy", x => x.Id);
                 });
         }
 

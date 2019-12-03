@@ -5,14 +5,14 @@
 
     <br /><br />
 
-<div class="row">
-    <div class ="col-6">
-        <h2 class="text-info"> Dang Ky List </h2>
-    </div>
-    <div class="col-6 text-right">
-        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; Dang Ky moi</a>
-    </div>
-</div>
+          <div class="row">
+              <div class="col-6">
+                  <h2 class="text-info"> Dang Ky List </h2>
+              </div>
+              <div class="col-6 text-right">
+                  <partial name="_CreateButtonPartial" />
+              </div>
+          </div>
 
 <br />
 <div>
@@ -23,9 +23,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(m => m.Password)
-            </th>
-            <th>
-                @Html.DisplayNameFor(m => m.RetypePassword)
             </th>
             <th>
                 @Html.DisplayNameFor(m => m.HoTen)
@@ -41,7 +38,7 @@
             </th>
         </tr>
 
-      
+
         @foreach (var item in Model)
         {
             <tr>
@@ -51,25 +48,23 @@
                 <td>
                     @Html.DisplayFor(m => item.Password)
                 </td>
-                 <td>
-                    @Html.DisplayFor(m => item.RetypePassword)
-                </td>
                 <td>
                     @Html.DisplayFor(m => item.HoTen)
                 </td>
-                     <td>
+                <td>
                     @Html.DisplayFor(m => item.SDT)
                 </td>
-                     <td>
+                <td>
                     @Html.DisplayFor(m => item.Email)
                 </td>
                 <td>
                     @Html.DisplayFor(m => item.DiaChi)
                 </td>
                 <td>
-                    <partial name = "_TableButtonPartial" model="item.MaKhachHang" />
+                    <partial name="_TableButtonPartial" model="item.Id" />
                 </td>
             </tr>
+
         }
 
     </table>
