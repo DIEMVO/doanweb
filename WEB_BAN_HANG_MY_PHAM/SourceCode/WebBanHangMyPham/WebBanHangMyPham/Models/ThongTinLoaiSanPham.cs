@@ -9,8 +9,9 @@ namespace WebBanHangMyPham.Models
     public class ThongTinLoaiSanPham
     {
         [Key]
-        public int MaLoaiSanPham { get; set; }
+        public int Id { get; set; }
         [Required]
+        [Display(Name = "Tên loại sản phẩm")]
         public string TenLoaiSanPham { get; set; }
     }
 }

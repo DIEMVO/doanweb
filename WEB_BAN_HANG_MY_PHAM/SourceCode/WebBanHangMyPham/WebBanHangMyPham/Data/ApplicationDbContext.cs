@@ -15,5 +15,7 @@ namespace WebBanHangMyPham.Data
         }
 
         public DbSet<DangKy> DangKy { get; set; }
+        public DbSet<ThongTinLoaiSanPham> ThongTinLoaiSanPham { get; set; }
+        public DbSet<ThongTinSanPham> ThongTinSanPham { get; set; }
     }
 }

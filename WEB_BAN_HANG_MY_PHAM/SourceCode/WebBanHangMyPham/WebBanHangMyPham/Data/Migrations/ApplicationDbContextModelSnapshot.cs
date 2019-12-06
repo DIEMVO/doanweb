@@ -254,6 +254,50 @@ namespace WebBanHangMyPham.Data.Migrations
                     b.ToTable("DangKy");
                 });
 
+            modelBuilder.Entity("WebBanHangMyPham.Models.ThongTinLoaiSanPham", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("TenLoaiSanPham")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ThongTinLoaiSanPham");
+                });
+
+            modelBuilder.Entity("WebBanHangMyPham.Models.ThongTinSanPham", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DonGia")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HangSanXuat")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LoaiSanPhamId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenSanPham")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LoaiSanPhamId");
+
+                    b.ToTable("ThongTinSanPham");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -301,6 +345,15 @@ namespace WebBanHangMyPham.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WebBanHangMyPham.Models.ThongTinSanPham", b =>
+                {
+                    b.HasOne("WebBanHangMyPham.Models.ThongTinLoaiSanPham", "ThongTinLoaiSanPham")
+                        .WithMany()
+                        .HasForeignKey("LoaiSanPhamId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

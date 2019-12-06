@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebBanHangMyPham.Models.ThongTinLoaiSanPham>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info"> Các Loại Sản Phẩm </h2>
+    </div>
+    <div class="col-6 text-right">
+        <partial name="_CreateButtonPartial" />
+    </div>
+</div>
+
+<br />
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(m => m.TenLoaiSanPham)
+            </th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.TenLoaiSanPham)
+                </td>
+                <td>
+                    <partial name="_TableButtonPartial" model="item.Id" />
+                </td>
+            </tr>
+
+        }
+
+    </table>
+</div>
+
