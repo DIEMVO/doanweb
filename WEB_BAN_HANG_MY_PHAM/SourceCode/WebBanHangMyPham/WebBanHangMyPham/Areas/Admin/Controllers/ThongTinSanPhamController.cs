@@ -32,7 +32,7 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
             {
                 LoaiSPList = await _db.ThongTinLoaiSanPham.ToListAsync(),
                 ThongTinSanPham = new Models.ThongTinSanPham(),
-                SanPhamList = await _db.ThongTinSanPham.OrderBy(p => p.Name).Select(p => p.Name).Distinct().ToListAsync()
+                SanPhamList = await _db.ThongTinSanPham.OrderBy(p => p.TenSanPham).Select(p => p.TenSanPham).Distinct().ToListAsync()
             };
 
             return View(model);
