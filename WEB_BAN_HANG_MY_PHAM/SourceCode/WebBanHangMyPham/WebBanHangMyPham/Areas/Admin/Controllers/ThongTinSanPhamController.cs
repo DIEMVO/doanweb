@@ -25,14 +25,14 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
 
 //-----------------------------------------------CREATE--------------------------------------
 
-        //GET Creat Acgtion Method
+        //GET Create Action Method
         public async Task<IActionResult> Create()
         {
             TTinAndLoaiSanPhamViewModels model = new TTinAndLoaiSanPhamViewModels()
             {
                 LoaiSPList = await _db.ThongTinLoaiSanPham.ToListAsync(),
                 ThongTinSanPham = new Models.ThongTinSanPham(),
-                SanPhamList = await _db.ThongTinSanPham.OrderBy(p => p.TenSanPham).Select(p => p.TenSanPham).Distinct().ToListAsync()
+                SanPhamList = await _db.ThongTinSanPham.OrderBy(p => p.Name).Select(p => p.Name).Distinct().ToListAsync()
             };
 
             return View(model);

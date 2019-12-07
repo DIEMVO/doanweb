@@ -13,7 +13,7 @@ namespace WebBanHangMyPham.Models
         public int Id { get; set; }
         [Required]
         [Display(Name = "Tên sản phẩm")]
-        public string TenSanPham { get; set; }
+        public string Name { get; set; }
         [Required]
         [Display(Name = "Giá")]
         public int DonGia { get; set; }

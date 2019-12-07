@@ -12,6 +12,6 @@ namespace WebBanHangMyPham.Models
         public int Id { get; set; }
         [Required]
         [Display(Name = "Tên loại sản phẩm")]
-        public string TenLoaiSanPham { get; set; }
+        public string Name { get; set; }
     }
 }
