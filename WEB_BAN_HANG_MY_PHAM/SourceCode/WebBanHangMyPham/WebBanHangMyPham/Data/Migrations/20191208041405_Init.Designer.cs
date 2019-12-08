@@ -10,8 +10,8 @@ using WebBanHangMyPham.Data;
 namespace WebBanHangMyPham.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191207084132_addGiamGiaToDatabase")]
-    partial class addGiamGiaToDatabase
+    [Migration("20191208041405_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -221,6 +221,38 @@ namespace WebBanHangMyPham.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("WebBanHangMyPham.Models.Coupon", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CouponType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Discount")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("MinimumAmount")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Picture")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Coupon");
+                });
+
             modelBuilder.Entity("WebBanHangMyPham.Models.DangKy", b =>
                 {
                     b.Property<int>("Id")
@@ -256,24 +288,39 @@ namespace WebBanHangMyPham.Data.Migrations
                     b.ToTable("DangKy");
                 });
 
-            modelBuilder.Entity("WebBanHangMyPham.Models.GiamGia", b =>
+            modelBuilder.Entity("WebBanHangMyPham.Models.MenuItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("GiaTri")
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LoaiSanPhamId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MoTa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TenMaGiamGia")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<int>("SanPhamId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("GiamGia");
+                    b.HasIndex("LoaiSanPhamId");
+
+                    b.HasIndex("SanPhamId");
+
+                    b.ToTable("MenuItem");
                 });
 
             modelBuilder.Entity("WebBanHangMyPham.Models.NhaSanXuat", b =>
@@ -435,6 +482,21 @@ namespace WebBanHangMyPham.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WebBanHangMyPham.Models.MenuItem", b =>
+                {
+                    b.HasOne("WebBanHangMyPham.Models.ThongTinLoaiSanPham", "ThongTinLoaiSanPham")
+                        .WithMany()
+                        .HasForeignKey("LoaiSanPhamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebBanHangMyPham.Models.ThongTinSanPham", "ThongTinSanPham")
+                        .WithMany()
+                        .HasForeignKey("SanPhamId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

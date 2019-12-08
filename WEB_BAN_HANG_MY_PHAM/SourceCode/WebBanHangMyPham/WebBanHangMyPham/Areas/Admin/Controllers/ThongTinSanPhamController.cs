@@ -16,19 +16,15 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
     {
         private readonly ApplicationDbContext _db;
 
-        [TempData]
-        public string StatusMessage { get; set; }
+        public string StatusMessage { get; private set; }
 
         public ThongTinSanPhamController(ApplicationDbContext db)
         {
             _db = db;
         }
-
-        //Get INDEX
         public async Task<IActionResult> Index()
         {
-            var thongTinSanPhams = await _db.ThongTinSanPham.Include(s=>s.ThongTinLoaiSanPham).ToListAsync();
-            return View(thongTinSanPhams);        
+            return View(await _db.ThongTinSanPham.Include(s=>s.ThongTinLoaiSanPham).ToListAsync());
         }
 
 //-----------------------------------------------CREATE--------------------------------------
@@ -45,19 +41,17 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
 
             return View(model);
         }
-
-
         //POST - CREATE
         //POST Create action Method
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(TTinAndLoaiSanPhamViewModels model)
-        { 
+        {
             if (ModelState.IsValid)
             {
                 var doesThongTinSanPhamExists = _db.ThongTinSanPham.Include(s => s.ThongTinLoaiSanPham).Where(s => s.TenSanPham == model.ThongTinSanPham.TenSanPham && s.ThongTinLoaiSanPham.Id == model.ThongTinSanPham.LoaiSanPhamId);
 
-                if(doesThongTinSanPhamExists.Count()>0)
+                if (doesThongTinSanPhamExists.Count() > 0)
                 {
                     //Error
                     StatusMessage = "Error : Thông tin sản phẩm exists under " + doesThongTinSanPhamExists.First().ThongTinLoaiSanPham.TenLoaiSanPham + "Thông tin loại sản phẩm. Please use another name.";
@@ -85,10 +79,9 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
             List<ThongTinSanPham> thongTinSanPhams = new List<ThongTinSanPham>();
 
             thongTinSanPhams = await (from thongTinSanPham in _db.ThongTinSanPham
-                                where thongTinSanPham.LoaiSanPhamId == id
-                                select thongTinSanPham).ToListAsync();
+                                      where thongTinSanPham.LoaiSanPhamId == id
+                                      select thongTinSanPham).ToListAsync();
             return Json(new SelectList(thongTinSanPhams, "Id", "TenLoaiSanPham"));
         }
-
     }
 }

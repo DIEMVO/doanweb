@@ -10,9 +10,15 @@ namespace WebBanHangMyPham.Models
     public class MenuItem
     {
         public int Id { get; set; }
+
         [Required]
+        [Display(Name = "Danh mục menu")]
         public string Name { get; set; }
+
+        [Display(Name = "Mô tả")]
         public string MoTa { get; set; }
+
+        [Display(Name = "Hình ảnh")]
         public string Image { get; set; }
 
         [Display(Name = "Loại sản phẩm")]
@@ -28,6 +34,8 @@ namespace WebBanHangMyPham.Models
         public virtual ThongTinSanPham ThongTinSanPham { get; set; }
 
         [Range(1,int.MaxValue, ErrorMessage = "Price shoule be greater than ${1}")]
+
+        [Display(Name = "Đơn giá")]
         public double Price { get; set; }
     }
 }

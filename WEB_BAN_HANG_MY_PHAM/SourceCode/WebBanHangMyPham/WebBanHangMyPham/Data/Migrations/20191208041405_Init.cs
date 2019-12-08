@@ -2,7 +2,7 @@
 
 namespace WebBanHangMyPham.Data.Migrations
 {
-    public partial class addGiamGiaToDatabase : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

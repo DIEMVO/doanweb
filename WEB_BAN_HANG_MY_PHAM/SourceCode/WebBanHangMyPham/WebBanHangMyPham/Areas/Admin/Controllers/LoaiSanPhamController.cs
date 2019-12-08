@@ -78,7 +78,7 @@ namespace WebBanHangMyPham.Areas.Admin.Controllers
             return View(thongTinLoaiSanPham);
         }
 
-        //-----------------------------------------------DELETE-------------------------------------
+        //-----------------------------------------------CREATE--------------------------------------
         //GET - Delete
         public async Task<IActionResult> Delete(int? id)
         {

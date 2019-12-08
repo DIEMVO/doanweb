@@ -20,7 +20,7 @@ namespace WebBanHangMyPham.Data
         public DbSet<ThongTinKhachHang> ThongTinKhachHang { get; set; }
         public DbSet<ThongTinDonHang> ThongTinDonHang { get; set; }
         public DbSet<NhaSanXuat> ThongTinNhaSanXuat { get; set; }
-        public DbSet<GiamGia> GiamGia { get; set; }
+        public DbSet<Coupon> Coupon { get; set; }
         public DbSet<MenuItem> MenuItem { get; set; }
     }
 }
