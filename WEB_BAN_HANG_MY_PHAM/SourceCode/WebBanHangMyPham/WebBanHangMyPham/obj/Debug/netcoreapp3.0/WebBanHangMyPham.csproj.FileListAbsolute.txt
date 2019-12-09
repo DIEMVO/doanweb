@@ -462,3 +462,10 @@ D:\Studying\Năm 3\Lập trình WEB\doanweb - Copy (2)\WEB_BAN_HANG_MY_PHAM\Sour
 D:\Studying\Năm 3\Lập trình WEB\doanweb - Copy (2)\WEB_BAN_HANG_MY_PHAM\SourceCode\WebBanHangMyPham\WebBanHangMyPham\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\Coupon\Create.cshtml.g.cs
 D:\Studying\Năm 3\Lập trình WEB\doanweb - Copy (2)\WEB_BAN_HANG_MY_PHAM\SourceCode\WebBanHangMyPham\WebBanHangMyPham\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\Coupon\Index.cshtml.g.cs
 D:\Studying\Năm 3\Lập trình WEB\doanweb - Copy (2)\WEB_BAN_HANG_MY_PHAM\SourceCode\WebBanHangMyPham\WebBanHangMyPham\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\MenuItem\Edit.cshtml.g.cs
+D:\Quoc_Dat_CNTT\5.HK1_Nam3\Lap_Trinh_Web\DO_AN\doanweb\WEB_BAN_HANG_MY_PHAM\SourceCode\WebBanHangMyPham\WebBanHangMyPham\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\Coupon\Create.cshtml.g.cs
+D:\Quoc_Dat_CNTT\5.HK1_Nam3\Lap_Trinh_Web\DO_AN\doanweb\WEB_BAN_HANG_MY_PHAM\SourceCode\WebBanHangMyPham\WebBanHangMyPham\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\Coupon\Index.cshtml.g.cs
+D:\Quoc_Dat_CNTT\5.HK1_Nam3\Lap_Trinh_Web\DO_AN\doanweb\WEB_BAN_HANG_MY_PHAM\SourceCode\WebBanHangMyPham\WebBanHangMyPham\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\MenuItem\Create.cshtml.g.cs
+D:\Quoc_Dat_CNTT\5.HK1_Nam3\Lap_Trinh_Web\DO_AN\doanweb\WEB_BAN_HANG_MY_PHAM\SourceCode\WebBanHangMyPham\WebBanHangMyPham\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\MenuItem\Edit.cshtml.g.cs
+D:\Quoc_Dat_CNTT\5.HK1_Nam3\Lap_Trinh_Web\DO_AN\doanweb\WEB_BAN_HANG_MY_PHAM\SourceCode\WebBanHangMyPham\WebBanHangMyPham\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\MenuItem\Index.cshtml.g.cs
+D:\Quoc_Dat_CNTT\5.HK1_Nam3\Lap_Trinh_Web\DO_AN\doanweb\WEB_BAN_HANG_MY_PHAM\SourceCode\WebBanHangMyPham\WebBanHangMyPham\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_StatusMessage.cshtml.g.cs
+D:\Quoc_Dat_CNTT\5.HK1_Nam3\Lap_Trinh_Web\DO_AN\doanweb\WEB_BAN_HANG_MY_PHAM\SourceCode\WebBanHangMyPham\WebBanHangMyPham\obj\Debug\netcoreapp3.0\Razor\Areas\Admin\Views\ThongTinSanPham\Edit.cshtml.g.cs
