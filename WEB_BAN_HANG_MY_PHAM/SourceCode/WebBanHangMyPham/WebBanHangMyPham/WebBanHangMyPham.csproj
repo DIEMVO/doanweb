@@ -20,6 +20,7 @@
   <ItemGroup>
     <Folder Include="Areas\Customer\Controllers\" />
     <Folder Include="Areas\Customer\Views\" />
+    <Folder Include="Areas\Identity\Pages\Account\Manage\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
 
