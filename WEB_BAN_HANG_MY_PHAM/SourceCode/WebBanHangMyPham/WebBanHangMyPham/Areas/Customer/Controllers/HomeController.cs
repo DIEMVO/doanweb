@@ -4,33 +4,24 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using WebBanHangMyPham.Data;
 using WebBanHangMyPham.Models;
-using WebBanHangMyPham.Models.ViewModels;
 
 namespace WebBanHangMyPham.Controllers
 {
     [Area("Customer")]
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ApplicationDbContext db)
+        public HomeController(ILogger<HomeController> logger)
         {
-            _db = db;
+            _logger = logger;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            IndexViewModel IndexVM = new IndexViewModel()
-            {
-                MenuItem = await _db.MenuItem.Include(m => m.ThongTinLoaiSanPham).Include(m => m.ThongTinSanPham).ToListAsync(),
-                ThongTinLoaiSanPham = await _db.ThongTinLoaiSanPham.ToListAsync(),
-                Coupon = await _db.Coupon.Where(c => c.IsActive == true).ToListAsync()
-            };
-            return View(IndexVM);
+            return View();
         }
 
         public IActionResult Privacy()
